@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Hoa
  *
@@ -36,22 +34,29 @@ declare(strict_types=1);
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Regex\Visitor;
+namespace igorora\Regex\Visitor;
 
-use Hoa\Math;
-use Hoa\Regex;
-use Hoa\Ustring;
-use Hoa\Visitor;
+
+use igorora\Visitor\Visit;
+use igorora\Regex\Exception;
+use igorora\Ustring\Ustring;
+use igorora\Visitor\Element;
+use igorora\Math\Sampler\Sampler;
 
 /**
- * Class \Hoa\Regex\Visitor\Isotropic.
+ * Class \igorora\Regex\Visitor\Isotropic.
  *
  * Isotropic walk on the AST to generate a data.
+ *
+ * @copyright  Copyright © 2007-2017 Hoa community
+ * @license    New BSD License
  */
-class Isotropic implements Visitor\Visit
+class Isotropic implements Visit
 {
     /**
-     * Numeric-sampler, from `Hoa\Math\Sampler`.
+     * Numeric-sampler.
+     *
+     * @var Sampler
      */
     protected $_sampler = null;
 
@@ -59,8 +64,10 @@ class Isotropic implements Visitor\Visit
 
     /**
      * Initialize numeric-sampler.
+     *
+     * @param   Sampler  $sampler    Numeric-sampler.
      */
-    public function __construct(Math\Sampler $sampler)
+    public function __construct(Sampler $sampler)
     {
         $this->_sampler = $sampler;
 
@@ -69,11 +76,17 @@ class Isotropic implements Visitor\Visit
 
     /**
      * Visit an element.
+     *
+     * @param   \igorora\Compiler\Llk\TreeNode  $element    Element to visit.
+     * @param   mixed                 &$handle    Handle (reference).
+     * @param   mixed                 $eldnah     Handle (not reference).
+     * @return  mixed
+     * @throws  \igorora\Regex\Exception
      */
     public function visit(
-        Visitor\Element $element,
+        Element $element,
         &$handle = null,
-        $eldnah  = null
+        $eldnah = null
     ) {
         switch ($element->getId()) {
             case '#expression':
@@ -259,7 +272,7 @@ class Isotropic implements Visitor\Visit
                                     Ustring::fromCode(0x00a0)
                                 ];
 
-                                return $h[$this->_sampler->getInteger(0, count($h) - 1)];
+                                return $h[$this->_sampler->getInteger(0, count($h) -1)];
 
                             case 'v':
                                 $v = [
@@ -269,7 +282,7 @@ class Isotropic implements Visitor\Visit
                                     Ustring::fromCode(0x000d)
                                 ];
 
-                                return $v[$this->_sampler->getInteger(0, count($v) - 1)];
+                                return $v[$this->_sampler->getInteger(0, count($v) -1)];
 
                             case 'w':
                                 $w  = array_merge(
@@ -315,7 +328,7 @@ class Isotropic implements Visitor\Visit
                 break;
 
             default:
-                throw new Regex\Exception(
+                throw new Exception(
                     'Unsupported node: %s.',
                     0,
                     $element->getId()

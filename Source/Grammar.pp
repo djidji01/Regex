@@ -31,11 +31,14 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 //
-// Grammar \Hoa\Regex\Grammar.
+// Grammar \igorora\Regex\Grammar.
 //
 // Provide grammar of PCRE (Perl Compatible Regular Expression)for the LL(k)
 // parser. More informations at http://pcre.org/pcre.txt, sections pcrepattern &
 // pcresyntax.
+//
+// @copyright  Copyright © 2007-2017 Hoa community.
+// @license    New BSD License
 //
 
 
@@ -106,7 +109,7 @@
 // Please, see PCRESYNTAX(3), General Category properties, PCRE special category
 // properties and script names for \p{} and \P{}.
 %token character_type            \\([CdDhHNRsSvVwWX]|[pP]{[^}]+})
-%token anchor                    \\([bBAZzG])|\^|\$
+%token anchor                    \\(bBAZzG)|\^|\$
 %token match_point_reset         \\K
 %token literal                   \\.|.
 
@@ -165,7 +168,7 @@ quantifier:
         ::negative_class_:: #negativeclass
       | ::class_::
     )
-    ( <class_> | range() | literal() )+ <range>?
+    ( range() | literal() )+
     ::_class::
 
 #range:

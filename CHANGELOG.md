@@ -16,9 +16,9 @@
 
   * Quality: Drop PHP5.4. (Ivan Enderlin, 2016-01-11T09:15:26+01:00)
   * Quality: Run devtools:cs. (Ivan Enderlin, 2016-01-09T09:07:46+01:00)
-  * Core: Remove `Hoa\Core`. (Ivan Enderlin, 2016-01-09T08:22:53+01:00)
-  * Consistency: Use `Hoa\Consistency`. (Ivan Enderlin, 2015-12-08T21:44:37+01:00)
-  * Exception: Use `Hoa\Exception`. (Ivan Enderlin, 2015-11-20T13:06:20+01:00)
+  * Core: Remove `igorora\Core`. (Ivan Enderlin, 2016-01-09T08:22:53+01:00)
+  * Consistency: Use `igorora\Consistency`. (Ivan Enderlin, 2015-12-08T21:44:37+01:00)
+  * Exception: Use `igorora\Exception`. (Ivan Enderlin, 2015-11-20T13:06:20+01:00)
 
 # 0.15.08.13
 
@@ -28,7 +28,7 @@
 
 # 0.15.05.29
 
-  * Move to `Hoa\Ustring`. (Ivan Enderlin, 2015-05-29T14:51:52+02:00)
+  * Move to `igorora\Ustring`. (Ivan Enderlin, 2015-05-29T14:51:52+02:00)
   * Move to PSR-1 and PSR-2. (Ivan Enderlin, 2015-05-18T09:28:32+02:00)
 
 # 0.15.02.24
@@ -45,7 +45,7 @@
 
 # 0.14.11.25
 
-  * `Hoa\Visitor` has been finalized. (Ivan Enderlin, 2014-11-15T22:23:45+01:00)
+  * `igorora\Visitor` has been finalized. (Ivan Enderlin, 2014-11-15T22:23:45+01:00)
 
 # 0.14.11.14
 
